@@ -976,13 +976,15 @@
     display: grid;
   }
   
-  .workExperience {
+  .gridContainer workExperience:nth-of-type(odd) {
     grid-area: 1 / 1 / 4 / 2;
   }
   
-  .rightSection {
+  .gridContainer workExperience:nth-of-type(even) {
     grid-area: 1 / 2 / 4 / 3;
   }
+
+ 
   
   .workExperience h2 {
     margin-bottom: 30px;
@@ -991,6 +993,14 @@
   
   .workItem, .educationItem {
     margin: 2rem 0;
+    background-color: #fff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1400px;
+    box-shadow: 0 6px 64px #7090b01a;
+    height: auto !important;
   }
   
   .workItem .projectDescription {

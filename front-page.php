@@ -12,6 +12,7 @@ echo basename($_SERVER['PHP_SELF']);
 
     <!--First section KANSKE MÅSTE GÖRA DYNAMISKT SEDAN?-->
     <section class="introSection">
+        
         <!--Left container-->
         <div class="introText">
             <p class="accentText">Digital marknadsföring för det lilla företaget</p>

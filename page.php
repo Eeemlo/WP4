@@ -16,6 +16,7 @@ echo basename($_SERVER['PHP_SELF']);
     if (have_posts()) {
         while (have_posts()) {
             the_post();
+            the_content();
         }
     }
     ?>
@@ -23,8 +24,7 @@ echo basename($_SERVER['PHP_SELF']);
     <!-- Skriver ut avkortade posts från WP enligt inställning -->
     <article>
         <h2><?php the_title(); ?></h2>
-        <?php the_excerpt(); ?>
-        <p><a href="<?php the_permalink(); ?>">Läs mer...</a></p>
+        <?php the_content(); ?>
     </article>
 
     </section>

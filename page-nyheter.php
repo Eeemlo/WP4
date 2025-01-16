@@ -30,7 +30,7 @@ echo "page-nyheter.php";
     <section class="projectSection">
         <h1>Nyheter</h1>
         <?php
-        query_posts('category_name=news&posts_per_page=3');
+        query_posts('category_name=news&posts_per_page=7');
 
 
         /* Hämtar posts från WP och förbereder dem för utskrift */
