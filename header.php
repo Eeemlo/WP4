@@ -35,7 +35,9 @@
     <!-- Large Navigation (visible on larger screens) -->
     <nav class="largeNav">
     <?php
-    wp_nav_menu('main-nav');
+    wp_nav_menu(array(
+      'theme_location' => 'main-nav'
+  ));
     ?>
     </nav>
   
@@ -45,7 +47,9 @@
       <!-- Small Navigation (for small screens) -->
       <nav class="smallNav" id="smallNav" role="navigation">
     <?php
-    wp_nav_menu('main-nav');
+    wp_nav_menu(array(
+      'theme_location' => 'main-nav'
+  ));
     ?>
   
       <!-- Menu Toggle Button for Small Screens -->

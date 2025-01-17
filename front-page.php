@@ -12,16 +12,23 @@ echo basename($_SERVER['PHP_SELF']);
 
     <!--First section KANSKE MÅSTE GÖRA DYNAMISKT SEDAN?-->
     <section class="introSection">
-        
-        <!--Left container-->
+
+<!--Left container-->
         <div class="introText">
-            <p class="accentText">Digital marknadsföring för det lilla företaget</p>
-            <h1>Din personliga marknadsförings&shy;byrå</h1>
-            <p>Vi är en liten byrå med stora idéer. Hos oss får du en engagerad partner som verkligen lyssnar och
-                bryr sig om din verksamhet. Vare sig du behöver hjälp med sociala medier, annonsering eller
-                innehållsskapande, så ser vi till att varje insats gör skillnad.
-            </p>
-            <strong>Här möts kreativitet och strategi – alltid med dig i fokus.</strong>
+            <?php
+            /* Hämtar posts från WP och förbereder dem för utskrift */
+            if (have_posts()) {
+                while (have_posts()) {
+                    the_post();
+
+                    ?>
+                    <!-- Skriver ut innehållet för start i WP -->
+
+                    <?php the_content(); ?>
+                    <?php
+                }
+            }
+            ?>
         </div>
 
         <!--Right container-->
@@ -34,7 +41,7 @@ echo basename($_SERVER['PHP_SELF']);
         </div>
     </section>
 
-<!--NYHETER PÅ STARTSIDA-->
+    <!--NYHETER PÅ STARTSIDA-->
     <section class="projectSection">
         <h2>Nyheter</h2>
         <?php
@@ -48,22 +55,22 @@ echo basename($_SERVER['PHP_SELF']);
 
                 ?>
                 <!-- Skriver ut avkortade posts från WP enligt inställning -->
-                
+
                 <a href="<?php the_permalink(); ?>">
-                <article>
-                    <div>
-                    <h3><?php the_title(); ?></h3>
-                    <p class="pSmall"><?php the_date(); ?></p>
-                    <?php the_excerpt(); ?>
-                    </div>
-                <span>
-                <?php 
-                if(has_post_thumbnail()) {
-                    the_post_thumbnail();
-                }
-                ?>
-                </span>
-                </article>
+                    <article>
+                        <div>
+                            <h3><?php the_title(); ?></h3>
+                            <p class="pSmall"><?php the_date(); ?></p>
+                            <?php the_excerpt(); ?>
+                        </div>
+                        <span>
+                            <?php
+                            if (has_post_thumbnail()) {
+                                the_post_thumbnail();
+                            }
+                            ?>
+                        </span>
+                    </article>
                 </a>
 
                 <?php
@@ -71,10 +78,45 @@ echo basename($_SERVER['PHP_SELF']);
         }
         ?>
 
-<button class="yellowBtn" onclick='window.location.href="http://localhost/WP4/nyheter/"'>Alla nyheter<i class="fa-solid fa-arrow-right"></i></button>
+        <button class="yellowBtn" onclick='window.location.href="http://localhost/WP4/nyheter/"'>Alla nyheter<i
+                class="fa-solid fa-arrow-right"></i></button>
     </section>
 
-    <p class="bottomSection">.</p>
+
+    <section class="contactSection">
+        <div class="contactText" id="contactText">
+            <h2 id="contactsHeading">Let's Talk!</h2>
+            <p>Vi älskar att ta oss an nya utmaningar och samarbeta med företag som vill växa. Hör av dig så pratar
+                vi om hur vi kan bidra till att förverkliga dina idéer och nå dina mål. Vi ser fram emot att höra
+                från dig!</p>
+            <h4>E-post</h4>
+            <p class="pSmall"><a href="mailto:info@sparkmarketing.com">emma.lorensson@outlook.com</a></p>
+            <h4>Telefon</h4>
+            <p class="pSmall">073-033 00 00</p>
+            <div class="socials">
+                <a href="https://www.linkedin.com/in/emma-lorensson-b8b21584/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/emmalorensson"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/ememlo/"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="formContainer">
+            <form id="contactForm">
+                <label for="name">Namn</label>
+                <input type="text" name="name" id="name">
+                <label for="email">E-post</label>
+                <input type="text" name="email" id="email">
+                <label for="company">Företag</label>
+                <input type="text" name="company" id="company">
+                <label for="message">Meddelande</label>
+                <textarea name="message" id="message"></textarea>
+                <input type="submit" value="Skicka">
+            </form>
+        </div>
+
+    </section>
+</main>
+
+<p class="bottomSection">.</p>
 </main>
 
 <!-- Include footer -->

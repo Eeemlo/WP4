@@ -18,7 +18,7 @@
 <?php get_header();
 
 //Ta bort efter utveckling är klar!!!
-echo "page-tjanster.php";
+echo "page-om-oss.php";
 
 ?>
 
@@ -59,35 +59,6 @@ echo "page-tjanster.php";
         </div>
     </section>
 
-    <!--VÅRA TJÄNSTER-->
-    <div class="gridContainer">
-        <?php
-        query_posts('category_name=services');
-
-        /* Hämtar posts från WP och förbereder dem för utskrift */
-        if (have_posts()) {
-            while (have_posts()) {
-                the_post();
-
-                ?>
-                <!-- Skriver ut avkortade posts från WP enligt inställning -->
-                <section class="workExperience">
-                    <h2><?php the_title(); ?></h2>
-                    <article class="project workItem">
-                        <div class="projectDescription">
-                            <?php the_excerpt(); ?>
-                            <a href="<?php the_permalink(); ?>" class="yellowLink"><?php the_title(); ?> <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                </section>
-
-                <?php
-            }
-        }
-        ?>
-
-    </div>
 
     <p class="bottomSection">.</p>
 </main>

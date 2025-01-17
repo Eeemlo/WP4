@@ -475,7 +475,7 @@
     right: 16%;
   }
   
-  .accentText {
+  .introText p:first-child {
     color: #c37dff;
     text-transform: uppercase;
     font-size: 1rem;
@@ -921,7 +921,7 @@
     position: relative;
   }
   
-  #portrait {
+  #purpleCircle img {
     border-radius: 50%;
     width: 100%;
     overflow: hidden;
@@ -961,7 +961,7 @@
       position: relative;
     }
   
-    #portrait {
+    #purpleCircle img {
       border-radius: 50%;
       width: 100%;
       overflow: hidden;
@@ -1044,11 +1044,11 @@
   }
   
   @media screen and (width <= 1090px) {
-    .workExperience {
+    .gridContainer .workExperience:nth-of-type(odd) {
       grid-area: 1 / 1 / 2 / 3;
     }
   
-    .rightSection {
+    .gridContainer .workExperience:nth-of-type(even) {
       grid-area: 2 / 1 / 3 / 3;
       margin-top: -100px;
     }
