@@ -610,6 +610,7 @@
     margin-top: 2rem;
   }
   
+  /*
   .contactSection .contactText .socials {
     margin-top: 20px;
   }
@@ -622,13 +623,13 @@
   
   .contactSection .contactText .socials i:hover {
     color: #c37dff;
-  }
+  }*/
   
   .contactSection .formContainer {
     width: 50%;
   }
   
-  .contactSection form {
+  .formContainer form {
     flex-direction: column;
     max-width: 90%;
     margin-left: 12%;
@@ -649,15 +650,19 @@
   .contactSection form input {
     height: 2em;
     padding: 0 10px;
+    width: 100%;
   }
   
   .contactSection form textarea {
     height: 15em;
     padding: 1rem;
+    width: 100%;
   }
   
-  .contactSection form label {
+  .contactSection form p label {
     margin-bottom: .5em;
+    color: #333;
+    font-size: 1rem;
   }
   
   .contactSection form input[type="submit"] {
@@ -667,7 +672,9 @@
     background-color: #fdc435;
     border: none;
     height: 2.4em;
+    width: 100%;
     font-family: Roboto, sans-serif;
+    font-size: 1.2rem;
     font-weight: 500;
     transition: all .5s;
   }
