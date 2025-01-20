@@ -1,12 +1,7 @@
 <!--Hämtas av WP för förstasidan-->
 
 <!-- Include header -->
-<?php get_header();
-
-//Ta bort efter utveckling är klar!!!
-echo basename($_SERVER['PHP_SELF']);
-
-?>
+<?php get_header();?>
 
 <main>
 

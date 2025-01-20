@@ -30,7 +30,17 @@
 <header>
  <!-- Menu for large screens -->
 <div class="menu">
-    <a href="<?php home_url(); ?>"><img class="logo" src="images/logo_gul.png" alt="logotyp"></a>
+<a href="<?php echo home_url(); ?>" class="logo">
+    <?php
+    // Ladda in logotypen från WP dynamiskt
+    $custom_logo_id = get_theme_mod('custom_logo');
+    if ($custom_logo_id) {
+        // Hämta URL för logotypen
+        $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
+        echo '<img src="' . esc_url($logo_url) . '" alt="' . get_bloginfo('name') . '">';
+    }
+    ?>
+</a>
   
     <!-- Large Navigation (visible on larger screens) -->
     <nav class="largeNav">

@@ -15,12 +15,7 @@
 
 
 <!-- Include header -->
-<?php get_header();
-
-//Ta bort efter utveckling är klar!!!
-echo "page-om-oss.php";
-
-?>
+<?php get_header();?>
 
 <main>
 

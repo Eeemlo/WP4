@@ -12,6 +12,17 @@ function register_my_menu() {
     ));
 }
 
+    /*Aktivera logotypstöd*/
+function theme_setup() {
+    add_theme_support('custom-logo', array(
+        'height'      => 100, // Justera höjden på logotypen
+        'width'       => 200, // Justera bredden på logotypen
+        'flex-height' => true, // Tillåter flexibel höjd
+        'flex-width'  => true, // Tillåter flexibel bredd
+    ));
+}
+add_action('after_setup_theme', 'theme_setup');
+
 /*Lägg till custom länk för kontaktsektion i huvudmenyn*/ 
 function add_custom_anchor_links_to_menu($items, $args) {
     if ($args->theme_location == 'main-nav') {
