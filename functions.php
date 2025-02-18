@@ -59,9 +59,11 @@ add_theme_support('custom-header', $args);
 
 
 //Ladda JS filen efter DOM
-function enqueue_scripts() {
-    wp_enqueue_script('main-script', get_template_directory_uri() . '/js/main.js', [], false, true);
+function my_theme_scripts() {
+    wp_enqueue_script('swiper-js', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), null, true);
+    wp_enqueue_script('custom-js', get_template_directory_uri() . '/js/script.js', array('swiper-js'), null, true);
 }
-add_action('wp_enqueue_scripts', 'enqueue_scripts');
+add_action('wp_enqueue_scripts', 'my_theme_scripts');
+
 
 ?>

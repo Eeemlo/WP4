@@ -11,7 +11,8 @@
 
 
     <link rel="stylesheet" href="<?= get_template_directory_uri();?>/css/main.css">
-
+  <!--SWIPER CSS-->
+<link rel="stylesheet" href="<?= get_template_directory_uri();?>/css/swiper-bundle.min.css">
     
     <script src="https://kit.fontawesome.com/bbc57534db.js" crossorigin="anonymous"></script>
 
@@ -20,6 +21,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+
 
 <!--HOOK (måste alltid vara med)-->
 <?php wp_head();?>
@@ -32,15 +34,17 @@
 <div class="menu">
 <a href="<?php echo home_url(); ?>" class="logo">
     <?php
-    // Ladda in logotypen från WP dynamiskt
     $custom_logo_id = get_theme_mod('custom_logo');
     if ($custom_logo_id) {
         // Hämta URL för logotypen
         $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
         echo '<img src="' . esc_url($logo_url) . '" alt="' . get_bloginfo('name') . '">';
+    } else {
+        echo 'Sawabona Studio'; // Om ingen logotyp är satt
     }
     ?>
 </a>
+
   
     <!-- Large Navigation (visible on larger screens) -->
     <nav class="largeNav">
