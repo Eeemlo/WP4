@@ -125,7 +125,7 @@
     font-size: 1.1em;
   }
   
-  .button, .yellowLink {
+  .button, .yellowLink, button{
     letter-spacing: .5px;
     cursor: pointer;
     border-radius: 6px;
@@ -137,7 +137,7 @@
     font-weight: 500;
   }
   
-  .yellowBtn, .yellowLink:hover, .yellowLink {
+  .yellowBtn, .yellowLink:hover, .yellowLink, button {
     color: #fff;
     background-color: #85253E;
     border: none;
@@ -146,7 +146,7 @@
     text-decoration: none;
   }
   
-  .yellowBtn:hover, .yellowLink:hover {
+  .yellowBtn:hover, .yellowLink:hover, button:hover {
     background-color: #C25950;
   }
   
@@ -1325,8 +1325,8 @@ display: none;
     border: none;
     border-radius: 8px;
     margin-bottom: 0rem;
-    font-family: poppins, sans-serif;
-    font-size: 1.2em;
+    font-family: Nunito, sans-serif;
+    font-size: 1.1em;
     box-shadow: 0 6px 64px #7090b01a;
     background-color: #fbf4f1;
   }
@@ -1346,11 +1346,24 @@ form input {
   }
 
   
- form p label {
+ label {
+  font-family: Nunito, sans-serif;
     margin-bottom: .5em;
     color: #333;
     font-size: 1rem;
   }
+
+  .mrm-input-group label {
+    display: flex;
+    align-items: center; /* Justera elementen vertikalt till mitten */
+}
+
+.mrm-input-group .required-mark {
+    margin-left: -24%; /* Skapa lite mellanrum mellan texten och stjärnan */
+    font-weight: bold; /* Om du vill göra stjärnan mer framträdande */
+}
+
+
   
  form input[type="submit"] {
     color: #ffffff;
@@ -1790,12 +1803,51 @@ form input {
     z-index: 1;
   }
 
+  footer ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer ul li {
+    list-style-type: none;
+  }
+
+  footer ul li a {
+    color: #333;
+    letter-spacing: .4px;
+    font-family: Nunito, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+
+  footer ul li a:hover {
+
+    text-decoration: underline;
+  }
+
+  .copyright {
+    display: block;
+    position: relative;
+    z-index: 999;
+    color: #333;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    background-color: #ff7e5f;
+    bottom: 0;
+    margin: 0;
+  }
+
+
   .footerContent {
     display: flex;
     position: relative;
     z-index: 9999;
     justify-content: space-around;
-    align-items: center;
+    align-items:flex-start;
     padding: 50px;
   }
 
@@ -1808,13 +1860,23 @@ form input {
   }
 
   .newsLetter {
-    width: 50%;
-    text-align: center;
+    width: 40%;
   }
+
 
   .footer-divider {
     height: 720px;
+    min-width: 1425px;
+    position: absolute;
+    bottom: 0;
   }
+
+  @media screen and (max-width: 1620px) {
+    .footer-divider {
+      height: 620px;
+    }
+  }
+
 
   @media screen and (max-width: 925px) {
     footer {

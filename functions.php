@@ -7,7 +7,8 @@ function register_my_menu() {
     
     register_nav_menus(array (
     'main-nav' => __('Huvudmeny'),
-    'footer-nav' => __('Sidfotsmeny')
+    'footer-nav-services' => __('Sidfotsmeny-tjanster'),
+    'footer-nav-info' => __('Sidfotsmeny-info')
 
     ));
 }

@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
             observer.unobserve(entry.target); // Sluta observera efter att animationen triggas
           }
       });
-  }, { threshold: 0.5 }); // Startar animation när 50% av elementet är synligt
+  }, { threshold: 0.3 }); // Startar animation när 50% av elementet är synligt
 
   items.forEach(item => {
       observer.observe(item);
