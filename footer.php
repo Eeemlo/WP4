@@ -1,7 +1,7 @@
 <!--FOOTER-->
 <footer>
   <div class="custom-shape-divider-bottom footer-divider">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 720">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 830">
       <defs>
         <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />

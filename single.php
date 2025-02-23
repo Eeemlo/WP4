@@ -1,25 +1,27 @@
-<!--Sida för enskilda nyheter-->
-<div class="custom-shape-divider-top">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <!-- Första lager: Mycket ojämnare och högre variation -->
-        <path
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-            opacity=".25" class="shape-fill" id="path1"></path>
-        <path
-            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-            opacity=".5" class="shape-fill" id="path2"></path>
-        <path
-            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-            class="shape-fill" id="path3"></path>
-    </svg>
-</div>
-
 <!-- Include header -->
 <?php get_header();?>
 
+
+<!--Sida för enskilda nyheter-->
+<div class="imgBackground">
+  <svg id="blob" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 330">
+    <!-- Definiera en linear gradient här -->
+    <defs>
+      <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#A75D5D;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+
+    <path fill="url(#gradient1)" fill-opacity="1"
+      d="M0,160L15,144C30,128,60,96,90,117.3C120,139,150,213,180,224C210,235,240,181,270,144C300,107,330,85,360,74.7C390,64,420,64,450,64C480,64,510,64,540,96C570,128,600,192,630,202.7C660,213,690,171,720,154.7C750,139,780,149,810,160C840,171,870,181,900,176C930,171,960,149,990,128C1020,107,1050,85,1080,90.7C1110,96,1140,128,1170,133.3C1200,139,1230,117,1260,122.7C1290,128,1320,160,1350,160C1380,160,1410,128,1425,112L1440,96L1440,0L1425,0C1410,0,1380,0,1350,0C1320,0,1290,0,1260,0C1230,0,1200,0,1170,0C1140,0,1110,0,1080,0C1050,0,1020,0,990,0C960,0,930,0,900,0C870,0,840,0,810,0C780,0,750,0,720,0C690,0,660,0,630,0C600,0,570,0,540,0C510,0,480,0,450,0C420,0,390,0,360,0C330,0,300,0,270,0C240,0,210,0,180,0C150,0,120,0,90,0C60,0,30,0,15,0L0,0Z">
+    </path>
+  </svg>
+</div>
+
 <main>
 
-    <section class="gridContainer singleNews">
+    <section class="singleNews">
         <?php
         /* Hämtar posts från WP och förbereder dem för utskrift */
         if (have_posts()) {
@@ -28,9 +30,10 @@
             }
         }
         ?>
+                   <h2><?php the_title(); ?></h2>
 
         <!-- Skriver ut avkortade posts från WP enligt inställning -->
-        <article>
+        <article class="newsPost">
         <span>
                 <?php
                 if (has_post_thumbnail()) {
@@ -38,7 +41,7 @@
                 }
                 ?>
             </span>
-            <h2><?php the_title(); ?></h2>
+            <p class="pSmall">Skriven av Emma bla bla</p>
             <div><?php the_content(); ?></div>
         </article>
 

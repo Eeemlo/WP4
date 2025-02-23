@@ -4,19 +4,19 @@
 <?php get_header(); ?>
 
 <div class="imgBackground">
-  <svg id="blob" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 330">
-    <!-- Definiera en linear gradient här -->
-    <defs>
-      <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#A75D5D;stop-opacity:1" />
-      </linearGradient>
-    </defs>
+    <svg id="blob" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 330">
+        <!-- Definiera en linear gradient här -->
+        <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#A75D5D;stop-opacity:1" />
+            </linearGradient>
+        </defs>
 
-    <path fill="url(#gradient1)" fill-opacity="1"
-      d="M0,160L15,144C30,128,60,96,90,117.3C120,139,150,213,180,224C210,235,240,181,270,144C300,107,330,85,360,74.7C390,64,420,64,450,64C480,64,510,64,540,96C570,128,600,192,630,202.7C660,213,690,171,720,154.7C750,139,780,149,810,160C840,171,870,181,900,176C930,171,960,149,990,128C1020,107,1050,85,1080,90.7C1110,96,1140,128,1170,133.3C1200,139,1230,117,1260,122.7C1290,128,1320,160,1350,160C1380,160,1410,128,1425,112L1440,96L1440,0L1425,0C1410,0,1380,0,1350,0C1320,0,1290,0,1260,0C1230,0,1200,0,1170,0C1140,0,1110,0,1080,0C1050,0,1020,0,990,0C960,0,930,0,900,0C870,0,840,0,810,0C780,0,750,0,720,0C690,0,660,0,630,0C600,0,570,0,540,0C510,0,480,0,450,0C420,0,390,0,360,0C330,0,300,0,270,0C240,0,210,0,180,0C150,0,120,0,90,0C60,0,30,0,15,0L0,0Z">
-    </path>
-  </svg>
+        <path fill="url(#gradient1)" fill-opacity="1"
+            d="M0,160L15,144C30,128,60,96,90,117.3C120,139,150,213,180,224C210,235,240,181,270,144C300,107,330,85,360,74.7C390,64,420,64,450,64C480,64,510,64,540,96C570,128,600,192,630,202.7C660,213,690,171,720,154.7C750,139,780,149,810,160C840,171,870,181,900,176C930,171,960,149,990,128C1020,107,1050,85,1080,90.7C1110,96,1140,128,1170,133.3C1200,139,1230,117,1260,122.7C1290,128,1320,160,1350,160C1380,160,1410,128,1425,112L1440,96L1440,0L1425,0C1410,0,1380,0,1350,0C1320,0,1290,0,1260,0C1230,0,1200,0,1170,0C1140,0,1110,0,1080,0C1050,0,1020,0,990,0C960,0,930,0,900,0C870,0,840,0,810,0C780,0,750,0,720,0C690,0,660,0,630,0C600,0,570,0,540,0C510,0,480,0,450,0C420,0,390,0,360,0C330,0,300,0,270,0C240,0,210,0,180,0C150,0,120,0,90,0C60,0,30,0,15,0L0,0Z">
+        </path>
+    </svg>
 </div>
 
 <main>
@@ -40,7 +40,7 @@
             }
             ?>
 
-            <a class="button yellowBtn" href="#">Jobba med mig</a>
+            <a class="button btn-scale" href="#">Jobba med mig</a>
         </div>
 
         <!--Right container-->
@@ -58,40 +58,46 @@
     </svg>
 
     <!--VÅRA TJÄNSTER-->
-<section class="services">
-    <h2>Tjänster</h2>
-    <div class="gridContainer">
-        <?php
-        // Slugs för sidorna i önskad ordning
-        $slugs = array('hemsida', 'tillganglighetsanpassning', 'webbanalys', 'konsulttimmar');
+    <section class="services">
+        <h2>Tjänster</h2>
+        <div class="gridContainer">
+            <?php
+            // Slugs för sidorna i önskad ordning
+            $slugs = array('hemsida', 'tillganglighetsanpassning', 'webbanalys', 'konsulttimmar');
 
-        // Skapa en tom array för att lagra sidorna
-        $pages = array();
+            // Skapa en tom array för att lagra sidorna
+            $pages = array();
 
-        // Loopa genom varje slug och hämta motsvarande sida
-        foreach ($slugs as $slug) {
-            $page = get_page_by_path($slug); // Hämta sida baserat på slug
-            if ($page) {
-                $pages[] = $page; // Lägg till sidan i arrayen om den finns
+            // Loopa genom varje slug och hämta motsvarande sida
+            foreach ($slugs as $slug) {
+                $page = get_page_by_path($slug); // Hämta sida baserat på slug
+                if ($page) {
+                    $pages[] = $page; // Lägg till sidan i arrayen om den finns
+                }
             }
-        }
 
-        // Nu loopar vi genom sidorna i den ordning som definieras i $slugs arrayen
-        foreach ($pages as $post) :
-            setup_postdata($post);
-            ?>
-            <section class="workExperience">
-                <article class="project workItem">
-                    <div class="projectDescription">
-                        <h4><?php the_title(); ?></h4>
-                        <?php the_excerpt(); ?>
-                        <a href="<?php the_permalink(); ?>" class="yellowLink"><?php the_title(); ?> <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </section>
-        <?php endforeach; wp_reset_postdata(); ?>
-    </div>
-</section>
+            // Nu loopar vi genom sidorna i den ordning som definieras i $slugs arrayen
+            foreach ($pages as $post):
+                setup_postdata($post);
+                ?>
+                <section class="workExperience">
+                    <article class="project workItem">
+                        <div class="projectDescription">
+                            <h4><?php the_title(); ?></h4>
+                            <?php
+                            $excerpt = get_post_meta(get_the_ID(), 'excerpt', true);
+                            if ($excerpt) {
+                                echo '<p class="custom-excerpt">' . esc_html($excerpt) . '</p>';
+                            } ?>
+                            <a href="<?php the_permalink(); ?>" class="button"><?php the_title(); ?> <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </section>
+            <?php endforeach;
+            wp_reset_postdata(); ?>
+        </div>
+    </section>
 
 
     <!--SVG SECTION-->
@@ -112,7 +118,7 @@
                 if ($page) {
                     // Skriver ut innehållet från den sidan (inklusive formuläret)
                     echo apply_filters('the_content', $page->post_content); ?>
-                    <a class="button yellowBtn" href="">Jobba med mig</a>
+                    <a class="button btn-scale" href="">Jobba med mig</a>
 
                 </div>
                 <div class="accentImg">
@@ -138,52 +144,52 @@
         </svg>
     </div>
 
-<!--NYHETER PÅ STARTSIDA SLIDER-->
-<div class="newsBg">
-<h2>Senaste blogginlägg</h2>
-<section class="newsSection">
-    <div class="slide-container swiper">
-        <div class="slide-content">
-            <div class="card-wrapper swiper-wrapper">
-                <?php
-                query_posts('category_name=news&posts_per_page=6');
-
-                /* Hämtar posts från WP och förbereder dem för utskrift */
-                if (have_posts()) {
-                    while (have_posts()) {
-                        the_post();
-                        ?>
-                        <!-- Skriver ut avkortade posts från WP -->
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-                                <div class="card-image">
-                                    <?php
-                                    if (has_post_thumbnail()) {
-                                        the_post_thumbnail('small'); // Anger storlek på thumbnail
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h4><?php the_title(); ?></h4>
-                                <p class="pSmall"><?php the_date(); ?></p>
-                                <?php the_excerpt(); ?>
-                                <a class="button" href="<?php the_permalink(); ?>">view more</a>
-                            </div>
-                        </div>
+    <!--NYHETER PÅ STARTSIDA SLIDER-->
+    <div class="newsBg">
+        <h2>Senaste blogginlägg</h2>
+        <section class="newsSection">
+            <div class="slide-container swiper">
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
                         <?php
-                    }
-                }
-                ?>
+                        query_posts('category_name=news&posts_per_page=6');
+
+                        /* Hämtar posts från WP och förbereder dem för utskrift */
+                        if (have_posts()) {
+                            while (have_posts()) {
+                                the_post();
+                                ?>
+                                <!-- Skriver ut avkortade posts från WP -->
+                                <div class="card swiper-slide">
+                                    <div class="image-content">
+                                        <span class="overlay"></span>
+                                        <div class="card-image">
+                                            <?php
+                                            if (has_post_thumbnail()) {
+                                                the_post_thumbnail('small'); // Anger storlek på thumbnail
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4><?php the_title(); ?></h4>
+                                        <p class="pSmall"><?php the_date(); ?></p>
+                                        <?php the_excerpt(); ?>
+                                        <a class="button" href="<?php the_permalink(); ?>">Läs mer</a>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
             </div>
-        </div>
-        <div class="swiper-button-next swiper-navBtn"></div>
-        <div class="swiper-button-prev swiper-navBtn"></div>
-        <div class="swiper-pagination"></div>
     </div>
-    </div>
-</section>
+    </section>
 
 
 

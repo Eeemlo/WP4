@@ -64,22 +64,6 @@
     text-transform: uppercase;
   }
   
-/*Linje under h2 funkar inte för tillfället  */
-/*
-  h2::after, .newsHeading::after {
-    content: "";
-    background-image: url('wp-content/themes/ditt-tema/images/line.svg');
-    background-size: cover;
-    width: 100%;
-    height:20px; 
-    display: block;
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-  }
-  
-*/
-  
   
   h3 {
     color: #333;
@@ -93,15 +77,12 @@
     font-family: Playfair Display, serif;
     font-size: 24px;
     font-weight: 800;
+    margin-bottom: 1rem;
   }
   
-  .newsHeading {
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
   
   p, strong {
-    color: #5f5f5f;
+    color: #404040;
     letter-spacing: .4px;
     font-family: Nunito, sans-serif;
     font-size: 20px;
@@ -125,42 +106,35 @@
     font-size: 1.1em;
   }
   
-  .button, .yellowLink, button{
-    letter-spacing: .5px;
+    .button, button{
+    letter-spacing: 1.4px;
     cursor: pointer;
+    border: none;
     border-radius: 6px;
     width: fit-content;
     min-width: 5rem;
-    padding: .5rem 1rem;
+    padding: .7rem 1rem;
     font-family: roboto, sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
-  }
-  
-  .yellowBtn, .yellowLink:hover, .yellowLink, button {
+    text-transform: uppercase;
     color: #fff;
     background-color: #85253E;
-    border: none;
-    padding: .6rem 1.1rem;
-    transition: all .5s;
     text-decoration: none;
+    margin-top: 1rem;
   }
   
-  .yellowBtn:hover, .yellowLink:hover, button:hover {
+  
+  .button:hover, button:hover {
     background-color: #C25950;
-  }
-  
-  .transparentBtn {
-    color: #85253E;
-    background-color: #fff0;
-    border: 2px solid #85253E;
+    border: none;
+    padding: .7rem 1.8rem;
     transition: all .5s;
     text-decoration: none;
   }
-  
-  .transparentBtn:hover {
-    color: #fff;
-    background-color: #85253E;
+
+  .btn-scale:hover {
+    transform: scale(1.15);
   }
 
   i {
@@ -182,13 +156,18 @@
     text-decoration: none;
   }
 
-  .introText p:first-child {
+  .introText p:first-child,
+  .newsPost .pSmall {
     color: #A75D5D;
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 800;
   }
   
+  .newsPost .pSmall {
+    margin-top: 2rem;
+    font-weight: 500;
+  }
 
 
   @media screen and (width <= 1780px) {
@@ -273,6 +252,10 @@
     margin: 0 auto;
     padding: 1em 0;
     display: flex;
+  }
+
+  nav {
+    position: relative;
   }
   
   .largeNav ul {
@@ -856,7 +839,7 @@
 
   .accentSection {
     background-color: #f6e8e4;
-    width: 100%;
+    width: 90%;
     z-index: 10;
   }
 
@@ -1070,19 +1053,11 @@ display: none;
     text-align: center;
   }
 
-.swiper-navBtn {
-  color: #FFC3A1;
-  transition: color 0.3s ease;
-}
+  .swiper-button-next,
+  .swiper-button-prev {
+    transform: scale(0.5); /* Skala upp storleken */
+  }
 
-.swiper-navBtn:hover {
-  color: #A75D5D;
-}
-
-.swiper-navBtn::before,
-.swiper-navBtn::after {
-  font-size: 40px;
-}
 
 .swiper-button-next {
   right: 0;
@@ -1093,13 +1068,26 @@ display: none;
 }
 
 .swiper-pagination-bullet{
-  background-color: #A75D5D;
+  color: #A75D5D;
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
   background-color: #A75D5D;
 }
+
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  color: #85253e; /* Färg för ikon */
+  transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover::before,
+.swiper-navBtn:hover::after {
+  color: #A75D5D; /* Färg för ikon vid hover */
+}
+
 
 @media screen and (max-width: 768px) {
 
@@ -1196,12 +1184,31 @@ display: none;
   .project .pSmall, .news .pSmall {
     line-height: 0;
   }
-  
-  .singleNews article {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 20px;
+
+  .singleNews {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    margin-bottom: 200px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
   }
+
+  
+
+  .singleNews h2 {
+    margin: 0px auto;
+    padding: 0px 25px;
+    max-width: 1250px;
+    width: 100%;
+    text-transform: unset;
+    font-weight: 600;
+  }
+
+
 
   .projectSection a article span, .singleNews article span {
     justify-content: center;
@@ -1215,18 +1222,31 @@ display: none;
     object-fit: cover;
     border-radius: 30px 0px 30px 0;
     width: 100%;
-    height: 100%;
+    height: 300px;
     order: -1;
   }
 
   .singleNews article span {
-    width:100%;
-    height: 300px;
     object-fit: cover;
   }
 
   .singleNews article span img {
     border-radius: 20px;
+  }
+
+  .singleNews h4 {
+    margin: 2rem 0 1rem;
+  }
+
+  .singleNews li {
+    color: #5f5f5f;
+    letter-spacing: .4px;
+    font-family: Nunito, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    margin-left: 45px;
   }
 
   .projectSection a:nth-of-type(odd) article span {
@@ -1259,9 +1279,6 @@ display: none;
     margin-bottom: 1rem;
   }
 
-  .singleNews article h2 {
-    margin-top: 5rem;
-  }
 
   .project .projectDescription .pSmall, .news .projectDescription .pSmall {
     margin-bottom: 30px;
@@ -1280,7 +1297,7 @@ display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-bottom: 500px;
+    padding-bottom: 200px;
     padding-left: 5%;
     display: flex;
     background-color: #f6e8e4;
@@ -1353,15 +1370,6 @@ form input {
     font-size: 1rem;
   }
 
-  .mrm-input-group label {
-    display: flex;
-    align-items: center; /* Justera elementen vertikalt till mitten */
-}
-
-.mrm-input-group .required-mark {
-    margin-left: -24%; /* Skapa lite mellanrum mellan texten och stjärnan */
-    font-weight: bold; /* Om du vill göra stjärnan mer framträdande */
-}
 
 
   
@@ -1435,11 +1443,14 @@ form input {
   .singleNews article {
     justify-content: center;
     align-items: center;
-    width: 1200px;
+    max-width: 1250px;
+    width: 100%;
     height: fit-content;
-    margin: 150px auto 0;
+    margin: 80px auto 0;
     display: flex;
     flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
   }
   
   .singleNews article div {
@@ -1546,7 +1557,7 @@ form input {
   }
   
   .bottomSection {
-    margin-bottom: 500px;
+    margin-bottom: 150px;
   }
   
   #purpleCircle {
@@ -1650,7 +1661,6 @@ form input {
   .gridContainer workExperience:nth-of-type(even) {
     grid-area: 1 / 2 / 4 / 3;
   }
-
  
   
   .workExperience h2 {
@@ -1695,15 +1705,7 @@ form input {
     font-size: 26px;
   }
   
-  .workItem .projectDescription strong {
-    font-size: 18px;
-  }
-  
-  .workItem .projectDescription p {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-size: 20px;
-  }
+
 
   @media  screen and (max-width: 495px) {
     .workItem .projectDescription p {
@@ -1784,12 +1786,7 @@ form input {
     height: 300px;
   }
   
-  .singleNews {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  
+
   .signature {
     margin-top: 50px;
   }
@@ -1871,19 +1868,92 @@ form input {
     bottom: 0;
   }
 
+  .mrm-input-group label {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline; /* Justera elementen vertikalt till mitten */
+}
+
+.mrm-input-group .required-mark {
+    margin-left: -24%; /* Skapa lite mellanrum mellan texten och stjärnan */
+    font-weight: bold; /* Om du vill göra stjärnan mer framträdande */
+}
+
   @media screen and (max-width: 1620px) {
     .footer-divider {
-      height: 620px;
+      height: 720px;
     }
   }
 
-
-  @media screen and (max-width: 925px) {
-    footer {
-      margin-top: -100px;
+  @media screen and (max-width: 1070px) {
+    .footerContent {
+      flex-direction: column;
+      align-items: center;
+      justify-content:flex-start;
     }
-  
+
+    .footer-divider {
+      height: 820px;
+      transform: scale(1.3);
+    }
+
+    .footerContent span {
+      padding-bottom: 100px;
+    }
+
+    .newsLetter {
+      width: 100%;
+    }
+
+    .mrm-input-group label {
+     margin-bottom: -90px;
   }
+
+  .footerContent span {
+    justify-content:flex-start;
+    width: 100%;
+  }
+
+  .infoMenu {
+    margin-left: 10%;
+  }
+  }
+
+  @media screen and (max-width: 490px) {
+    .footerContent span {
+      flex-direction: column;
+    }
+
+    .infoMenu {
+      margin-left: 0px;
+    }
+
+    .footerContent span {
+      padding-bottom: 30px;
+    }
+
+    .servicesMenu {
+      padding-bottom: 5rem;
+    }
+
+    .footer-divider {
+      height: 920px;
+      transform: scale(1.7);
+    }
+
+    .mrm-input-group label {
+      margin-bottom: -20px;
+   }
+
+   .footerContent {
+    padding: 50px 20px;
+  }
+
+  .contactSection {
+    padding-bottom: 250px;
+  }
+  }
+
 
   .service {
     display: block;
@@ -1932,16 +2002,30 @@ form input {
   margin: 0 auto;
 }
 
-.web-packages-long h2 {
+@media screen and (max-width: 345px) {
+  .web-packages-long .flexContainer{
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+.web-packages-long h2,
+.web-packages-long h4:nth-of-type(1)  {
   width: 100%;
   text-align: center;
   margin-top: 0px;
 }
 
+
+.web-packages-long summary {
+    font-size: 1.1rem;
+    color: #521525;
+  }
+
 .web-packages-long .service-item {
   background-color: #fef7f7;
   display: block;
   position: relative;
+  height: fit-content;
   z-index: 999;
   margin-bottom: 0px 15px 70px 15px;
   padding: 50px 15px;
@@ -1957,6 +2041,11 @@ form input {
   transform: translateX(0); /* Flytta den till sin ursprungliga position */
 }
 
+.web-packages-long .service-item .yellowLink {
+  margin: -30px auto -30px;
+  width: 100%;
+  text-align: center;
+}
 
 .serviceDescription {
   width: 100%;
@@ -2064,7 +2153,9 @@ form input {
 
 .web-consultation .processText {
   display: flex;
-  justify-content: center;
+
+
+justify-content: center;
   padding: 0 40px 0 0px;
 }
 

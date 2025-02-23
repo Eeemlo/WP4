@@ -190,7 +190,11 @@
                 <article class="project workItem">
                     <div class="projectDescription">
                         <h4><?php the_title(); ?></h4>
-                        <?php the_excerpt(); ?>
+                        <?php
+                            $excerpt = get_post_meta(get_the_ID(), 'excerpt', true);
+                            if ($excerpt) {
+                                echo '<p class="custom-excerpt">' . esc_html($excerpt) . '</p>';
+                            } ?>
                         <a href="<?php the_permalink(); ?>" class="yellowLink"><?php the_title(); ?> <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
