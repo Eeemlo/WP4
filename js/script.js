@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const items = document.querySelectorAll('.workItem, .educationItem, .accentImg, .service-item, .accentContent, .newsContainer article');
+  const items = document.querySelectorAll('.workItem, .educationItem, .accentImg, .service-item, .accentContent, .newsContainer article, .essential-content');
 
   const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {

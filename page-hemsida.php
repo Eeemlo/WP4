@@ -50,13 +50,35 @@
         </path>
     </svg>
 
+    <section class="essential-web">
+    <h2>Grundpaket hemsida</h2>
+    <div class="essential-content">
+        <?php
+        // Hämta sidan som innehåller innehållet, t.ex. "grundpaket-webb"
+        $page = get_page_by_path('grundpaket-hemsida');  // Ändra slug till den sida som innehåller formuläret
+        
+        // Kontrollera att sidan verkligen hittades och att det är ett objekt
+        if ($page && is_object($page)): ?>
+            <article class="service-item">
+                    <p><?php echo apply_filters('the_content', get_post_field('post_content', $page->ID)); ?></p>
+                    <a href="<?php echo get_permalink($page); ?>" class="button">Boka konsultation <i class="fa-solid fa-arrow-right"></i></a>
+            </article>
+        <?php else: ?>
+            <p>Sidan som du söker finns inte eller har inte publicerats än.</p>
+        <?php endif; ?>
+    </div>
+</section>
+
+
+
+
     <!--WEBBPAKET LONG-->
     <section class="web-packages-long">
-        <h2>Webbpaket</h2>
+        <h2>Tilläggspaket hemsida</h2>
         <div class="flexContainer">
             <?php
             // Slugs för sidorna i önskad ordning
-            $slugs = array('hemsida-brons', 'hemsida-silver', 'hemsida-guld');
+            $slugs = array('marknadsforing', 'utoka', 'custom-design' );
 
             // Skapa en tom array för att lagra sidorna
             $pages = array();
@@ -73,15 +95,15 @@
             foreach ($pages as $post):
                 setup_postdata($post);
                 ?>
-                    <article class="service-item">
-                        <div class="serviceDescription">
+                <article class="service-item">
+                    <div class="serviceDescription">
                         <h3><?php the_title(); ?></h3>
-                            <p><?php the_content(); ?></p>
-                            <a href="<?php the_permalink(); ?>" class="yellowLink">Boka konsultation <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                
+                        <p><?php the_content(); ?></p>
+                        <a href="<?php the_permalink(); ?>" class="button">Boka konsultation <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
             <?php endforeach;
             wp_reset_postdata(); ?>
         </div>
@@ -89,118 +111,120 @@
     <div class="curved upper">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
             <path fill="#f6e8e4" fill-opacity="1"
-                d="M0,192L15,176C30,160,60,128,90,101.3C120,75,150,53,180,80C210,107,240,181,270,202.7C300,224,330,192,360,170.7C390,149,420,139,450,128C480,117,510,107,540,122.7C570,139,600,181,630,202.7C660,224,690,224,720,192C750,160,780,96,810,112C840,128,870,224,900,256C930,288,960,256,990,213.3C1020,171,1050,117,1080,112C1110,107,1140,149,1170,186.7C1200,224,1230,256,1260,266.7C1290,277,1320,267,1350,250.7C1380,235,1410,213,1425,202.7L1440,192L1440,320L1425,320C1410,320,1380,320,1350,320C1320,320,1290,320,1260,320C1230,320,1200,320,1170,320C1140,320,1110,320,1080,320C1050,320,1020,320,990,320C960,320,930,320,900,320C870,320,840,320,810,320C780,320,750,320,720,320C690,320,660,320,630,320C600,320,570,320,540,320C510,320,480,320,450,320C420,320,390,320,360,320C330,320,300,320,270,320C240,320,210,320,180,320C150,320,120,320,90,320C60,320,30,320,15,320L0,320Z">
+            d="M0,128L30,149.3C60,171,120,213,180,213.3C240,213,300,171,360,165.3C420,160,480,192,540,202.7C600,213,660,203,720,186.7C780,171,840,149,900,160C960,171,1020,213,1080,208C1140,203,1200,149,1260,128C1320,107,1380,117,1410,122.7L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
             </path>
         </svg>
     </div>
 
     <div class="processBg">
-    <section class="processSection">
-        <div class="processImg">
-        <?php
-        // Hämta sidan som innehåller innehållet, t.ex. "process"
-        $page = get_page_by_path('hemsida-process');  // Ändra slug till den sida som innehåller formuläret
-        if ($page) :
-            // Kolla om sidan har en thumbnail
-            if (has_post_thumbnail($page->ID)) :
-                ?>
-                <div class="thumbnail">
-                    <?php echo get_the_post_thumbnail($page->ID, 'full'); ?> <!-- Skriv ut thumbnail-bilden -->
+        <section class="processSection">
+            <div class="processImg">
+                <?php
+                // Hämta sidan som innehåller innehållet, t.ex. "process"
+                $page = get_page_by_path('hemsida-process');  // Ändra slug till den sida som innehåller formuläret
+                if ($page):
+                    // Kolla om sidan har en thumbnail
+                    if (has_post_thumbnail($page->ID)):
+                        ?>
+                        <div class="thumbnail">
+                            <?php echo get_the_post_thumbnail($page->ID, 'full'); ?> <!-- Skriv ut thumbnail-bilden -->
+                        </div>
+                        <?php
+                    endif; ?>
                 </div>
-                <?php
-            endif; ?>
+                <div class="processText" id="processText">
+                    <?php
+                    // Skriver ut innehållet från den sidan (inklusive formuläret)
+                    echo apply_filters('the_content', $page->post_content);
+                endif;
+                ?>
             </div>
-            <div class="processText" id="processText">
-                <?php
-            // Skriver ut innehållet från den sidan (inklusive formuläret)
-            echo apply_filters('the_content', $page->post_content);
-        endif;
-        ?>
+        </section>
     </div>
-</section>
-</div>
 
-<div class="curved under">
+    <div class="curved under">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 270">
             <path fill="#f6e8e4" fill-opacity="1"
-                d="M0,192L15,176C30,160,60,128,90,101.3C120,75,150,53,180,80C210,107,240,181,270,202.7C300,224,330,192,360,170.7C390,149,420,139,450,128C480,117,510,107,540,122.7C570,139,600,181,630,202.7C660,224,690,224,720,192C750,160,780,96,810,112C840,128,870,224,900,256C930,288,960,256,990,213.3C1020,171,1050,117,1080,112C1110,107,1140,149,1170,186.7C1200,224,1230,256,1260,266.7C1290,277,1320,267,1350,250.7C1380,235,1410,213,1425,202.7L1440,192L1440,0L1425,0C1410,0,1380,0,1350,0C1320,0,1290,0,1260,0C1230,0,1200,0,1170,0C1140,0,1110,0,1080,0C1050,0,1020,0,990,0C960,0,930,0,900,0C870,0,840,0,810,0C780,0,750,0,720,0C690,0,660,0,630,0C600,0,570,0,540,0C510,0,480,0,450,0C420,0,390,0,360,0C330,0,300,0,270,0C240,0,210,0,180,0C150,0,120,0,90,0C60,0,30,0,15,0L0,0Z">
+            d="M0,128L30,117.3C60,107,120,85,180,101.3C240,117,300,171,360,165.3C420,160,480,96,540,106.7C600,117,660,203,720,213.3C780,224,840,160,900,149.3C960,139,1020,181,1080,208C1140,235,1200,245,1260,234.7C1320,224,1380,192,1410,176L1440,160L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
             </path>
         </svg>
     </div>
 
-<section class="web-consultation">
-    <?php
-    // Hämta sidan som innehåller innehållet, t.ex. "process"
-    $page = get_page_by_path('boka-konsultation');  // Ändra slug till den sida som innehåller formuläret
-    if ($page) :
-    ?>
-        <div class="processText" id="processText">
-            <?php
-            // Skriver ut innehållet från den sidan (inklusive formuläret)
-            echo apply_filters('the_content', $page->post_content);
+    <section class="web-consultation">
+        <?php
+        // Hämta sidan som innehåller innehållet, t.ex. "process"
+        $page = get_page_by_path('boka-konsultation');  // Ändra slug till den sida som innehåller formuläret
+        if ($page):
             ?>
-        </div>
-    <?php endif; ?>
-</section>
+            <div class="processText" id="processText">
+                <?php
+                // Skriver ut innehållet från den sidan (inklusive formuläret)
+                echo apply_filters('the_content', $page->post_content);
+                ?>
+            </div>
+        <?php endif; ?>
+    </section>
 
-<svg id="blob3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 420">
+    <svg id="blob3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 420">
         <path fill="#EAD6D0" fill-opacity="1"
-            d="M0,64L20,69.3C40,75,80,85,120,112C160,139,200,181,240,181.3C280,181,320,139,360,149.3C400,160,440,224,480,213.3C520,203,560,117,600,117.3C640,117,680,203,720,245.3C760,288,800,288,840,245.3C880,203,920,117,960,122.7C1000,128,1040,224,1080,266.7C1120,309,1160,299,1200,266.7C1240,235,1280,181,1320,149.3C1360,117,1400,107,1420,101.3L1440,96L1440,0L1420,0C1400,0,1360,0,1320,0C1280,0,1240,0,1200,0C1160,0,1120,0,1080,0C1040,0,1000,0,960,0C920,0,880,0,840,0C800,0,760,0,720,0C680,0,640,0,600,0C560,0,520,0,480,0C440,0,400,0,360,0C320,0,280,0,240,0C200,0,160,0,120,0C80,0,40,0,20,0L0,0Z">
+        d="M0,128L30,160C60,192,120,256,180,250.7C240,245,300,171,360,154.7C420,139,480,181,540,197.3C600,213,660,203,720,192C780,181,840,171,900,176C960,181,1020,203,1080,186.7C1140,171,1200,117,1260,122.7C1320,128,1380,192,1410,224L1440,256L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
         </path>
     </svg>
 
     <section class="other-services">
-    <?php
-    // Hämta sidan som innehåller innehållet, t.ex. "process"
-    $page = get_page_by_path('ovriga-tjanster');  // Ändra slug till den sida som innehåller formuläret
-    if ($page) :
-    ?>
-        <div class="ovrigText" id="ovrigText">
-            <?php
-            // Skriver ut innehållet från den sidan (inklusive formuläret)
-            echo apply_filters('the_content', $page->post_content);
-            ?>
-        </div>
-    <?php endif; ?>
-
-    
-    <!--VÅRA TJÄNSTER-->
-    <div class="gridContainer">
         <?php
-        // Slugs för sidorna i önskad ordning
-        $slugs = array('tillganglighetsanpassning', 'webbanalys', 'konsulttimmar');
-
-        // Skapa en tom array för att lagra sidorna
-        $pages = array();
-
-        // Loopa genom varje slug och hämta motsvarande sida
-        foreach ($slugs as $slug) {
-            $page = get_page_by_path($slug); // Hämta sida baserat på slug
-            if ($page) {
-                $pages[] = $page; // Lägg till sidan i arrayen om den finns
-            }
-        }
-
-        // Nu loopar vi genom sidorna i den ordning som definieras i $slugs arrayen
-        foreach ($pages as $post) :
-            setup_postdata($post);
+        // Hämta sidan som innehåller innehållet, t.ex. "process"
+        $page = get_page_by_path('ovriga-tjanster');  // Ändra slug till den sida som innehåller formuläret
+        if ($page):
             ?>
-            <section class="workExperience">
-                <article class="project workItem">
-                    <div class="projectDescription">
-                        <h4><?php the_title(); ?></h4>
-                        <?php
+            <div class="ovrigText" id="ovrigText">
+                <?php
+                // Skriver ut innehållet från den sidan (inklusive formuläret)
+                echo apply_filters('the_content', $page->post_content);
+                ?>
+            </div>
+        <?php endif; ?>
+
+
+        <!--VÅRA TJÄNSTER-->
+        <div class="gridContainer">
+            <?php
+            // Slugs för sidorna i önskad ordning
+            $slugs = array('tillganglighetsanpassning', 'webbanalys', 'konsulttimmar');
+
+            // Skapa en tom array för att lagra sidorna
+            $pages = array();
+
+            // Loopa genom varje slug och hämta motsvarande sida
+            foreach ($slugs as $slug) {
+                $page = get_page_by_path($slug); // Hämta sida baserat på slug
+                if ($page) {
+                    $pages[] = $page; // Lägg till sidan i arrayen om den finns
+                }
+            }
+
+            // Nu loopar vi genom sidorna i den ordning som definieras i $slugs arrayen
+            foreach ($pages as $post):
+                setup_postdata($post);
+                ?>
+                <section class="workExperience">
+                    <article class="project workItem">
+                        <div class="projectDescription">
+                            <h4><?php the_title(); ?></h4>
+                            <?php
                             $excerpt = get_post_meta(get_the_ID(), 'excerpt', true);
                             if ($excerpt) {
                                 echo '<p class="custom-excerpt">' . esc_html($excerpt) . '</p>';
                             } ?>
-                        <a href="<?php the_permalink(); ?>" class="yellowLink"><?php the_title(); ?> <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </section>
-        <?php endforeach; wp_reset_postdata(); ?>
-    </div>
-</section>
+                            <a href="<?php the_permalink(); ?>" class="button"><?php the_title(); ?> <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </section>
+            <?php endforeach;
+            wp_reset_postdata(); ?>
+        </div>
+    </section>
 
 
 

@@ -77,7 +77,7 @@
                         <div class="serviceDescription">
                         <h3><?php the_title(); ?></h3>
                             <p><?php the_content(); ?></p>
-                            <a href="<?php the_permalink(); ?>" class="yellowLink">Boka konsultation <i
+                            <a href="<?php the_permalink(); ?>" class="button">Boka konsultation <i
                                     class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
@@ -193,7 +193,7 @@
                             if ($excerpt) {
                                 echo '<p class="custom-excerpt">' . esc_html($excerpt) . '</p>';
                             } ?>
-                        <a href="<?php the_permalink(); ?>" class="yellowLink"><?php the_title(); ?> <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="<?php the_permalink(); ?>" class="button"><?php the_title(); ?> <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
             </section>
