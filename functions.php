@@ -27,14 +27,14 @@ add_action('after_setup_theme', 'theme_setup');
 /*Lägg till custom länk för kontaktsektion i huvudmenyn*/ 
 function add_custom_anchor_links_to_menu($items, $args) {
     if ($args->theme_location == 'main-nav') {
-        $page_url = get_permalink(12); // ID 12 för front-page.php
-        $section_id = 'contactText'; // Sektionens ID
+        $page_url = get_permalink(16); // ID 16 för front-page.php
+        $section_id = 'contactMain'; // Sektionens ID
 
         // Skapa ankar-länken
         $link = $page_url . '#' . $section_id;
         
         // Skapa ett nytt menyobjekt
-        $new_item = '<li class="menu-item menu-item-type-custom"><a href="' . esc_url($link) . '">Kontakt</a></li>';
+        $new_item = '<li class="menu-item menu-item-type-custom"><a class="button" id="ctahead" href="' . esc_url($link) . '">Kontakta mig!</a></li>';
         
         // Lägg till det nya objektet i menyn
         $items .= $new_item;

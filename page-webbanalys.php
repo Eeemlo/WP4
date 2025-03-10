@@ -13,8 +13,7 @@
         </defs>
 
         <path fill="url(#gradient1)" fill-opacity="1"
-            d="M0,224L20,202.7C40,181,80,139,120,122.7C160,107,200,117,240,144C280,171,320,213,360,213.3C400,213,440,171,480,165.3C520,160,560,192,600,197.3C640,203,680,181,720,149.3C760,117,800,75,840,96C880,117,920,203,960,213.3C1000,224,1040,160,1080,138.7C1120,117,1160,139,1200,128C1240,117,1280,75,1320,85.3C1360,96,1400,160,1420,192L1440,224L1440,0L1420,0C1400,0,1360,0,1320,0C1280,0,1240,0,1200,0C1160,0,1120,0,1080,0C1040,0,1000,0,960,0C920,0,880,0,840,0C800,0,760,0,720,0C680,0,640,0,600,0C560,0,520,0,480,0C440,0,400,0,360,0C320,0,280,0,240,0C200,0,160,0,120,0C80,0,40,0,20,0L0,0Z">
-        </path>
+        d="M0,160L21.8,170.7C43.6,181,87,203,131,197.3C174.5,192,218,160,262,138.7C305.5,117,349,107,393,106.7C436.4,107,480,117,524,117.3C567.3,117,611,107,655,133.3C698.2,160,742,224,785,213.3C829.1,203,873,117,916,101.3C960,85,1004,139,1047,144C1090.9,149,1135,107,1178,106.7C1221.8,107,1265,149,1309,176C1352.7,203,1396,213,1418,218.7L1440,224L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z"></path>
     </svg>
 </div>
 
@@ -52,12 +51,12 @@
     </svg>
 
     <!--WEBBPAKET LONG-->
-    <section class="web-packages-long accessability">
+    <section class="web-packages-long optimization">
         <h2>Analys- och åtgärdspaket</h2>
         <div class="flexContainer">
             <?php
             // Slugs för sidorna i önskad ordning
-            $slugs = array('webbanalys-forslag', 'implementering-analys');
+            $slugs = array('webbanalys-forslag', 'webboptimering');
 
             // Skapa en tom array för att lagra sidorna
             $pages = array();
@@ -78,7 +77,7 @@
                         <div class="serviceDescription">
                         <h3><?php the_title(); ?></h3>
                             <p><?php the_content(); ?></p>
-                            <a href="<?php the_permalink(); ?>" class="yellowLink">Boka konsultation <i
+                            <a href="<?php the_permalink(); ?>" class="button">Boka konsultation <i
                                     class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
@@ -169,7 +168,7 @@
     <div class="gridContainer">
         <?php
         // Slugs för sidorna i önskad ordning
-        $slugs = array('hemsida', 'tillganglighetsanalys', 'konsulttimmar');
+        $slugs = array('hemsida', 'tillganglighetsanpassning', 'konsulttimmar');
 
         // Skapa en tom array för att lagra sidorna
         $pages = array();
@@ -195,7 +194,7 @@
                             if ($excerpt) {
                                 echo '<p class="custom-excerpt">' . esc_html($excerpt) . '</p>';
                             } ?>
-                        <a href="<?php the_permalink(); ?>" class="yellowLink"><?php the_title(); ?> <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="<?php the_permalink(); ?>" class="button"><?php the_title(); ?> <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
             </section>

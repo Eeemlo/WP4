@@ -110,12 +110,12 @@
     letter-spacing: 1.4px;
     cursor: pointer;
     border: none;
-    border-radius: 6px;
+    border-radius: 50px;
     width: fit-content;
     min-width: 5rem;
-    padding: .7rem 1rem;
+    padding: .9rem 1.6rem;
     font-family: roboto, sans-serif;
-    font-size: 17px;
+    font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
     color: #fff;
@@ -128,13 +128,23 @@
   .button:hover, button:hover {
     background-color: #C25950;
     border: none;
-    padding: .7rem 1.8rem;
     transition: all .5s;
     text-decoration: none;
   }
 
   .btn-scale:hover {
     transform: scale(1.15);
+  }
+
+  #ctahead {
+    color: #fff;
+    text-decoration: none;
+    padding: .9rem 1.6rem;
+    margin-left: 3rem;
+  }
+
+  #ctahead:hover {
+    background-color: #521525;
   }
 
   i {
@@ -231,9 +241,13 @@
       font-size: rem;
     }
 
-    .button, .yellowLink {
-      font-size: 14px;
-      font-weight: 400;
+    .button {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .button i {
+      display: none;
     }
     
   }
@@ -351,7 +365,7 @@
   }
   
   .smallNav a.nav__toggle {
-    z-index: 9999;
+    z-index: 9998;
     cursor: pointer;
     background: none;
     border: 0;
@@ -361,8 +375,8 @@
     transition: background-color .15s linear;
     display: inline-block;
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 0;
+    right: -10px;
   }
   
   .smallNav .menu-top-menu-container {
@@ -395,6 +409,8 @@
     opacity: 1; /*Sätt till 0 när allt funkar*/
     transition: all .2s cubic-bezier(0, .995, .99, 1) .2s;
     margin: 0rem 0;
+    position: relative;
+    z-index: 9999
   }
   
   .smallNav .menu-top-menu-container #menu-top-menu-1 .menu-item-15 {
@@ -425,6 +441,10 @@
     font-weight: 700;
   }
   
+  .smallNav .button {
+    width: 100%;
+    justify-self: center;
+  }
 
   .smallNav .sub-menu {
     display: flex;
@@ -485,17 +505,11 @@
     transition: stroke-dashoffset .3s linear .1s;
   }
   
-  /*
-  .smallNav:target, .nav--open {
-    width: 250px;
-    height: 100vh;
-  }*/
-  
 .nav--open svg {
     color: #65172c;
     transform: rotate(180deg);
     position: fixed;
-    right: 35px;
+    right: 25px;
   }
   
 .nav--open svg circle {
@@ -527,7 +541,7 @@
     transform: translateY(0);
   }
   
-  @media screen and (width <= 1070px) {
+  @media screen and (width <= 1150px) {
     .menu .largeNav ul {
       display: none !important;
     }
@@ -549,7 +563,6 @@
   
   @media screen and (width <= 380px) {
     .smallNav a.nav__toggle {
-      top: 10px;
       right: 10px;
     }
   
@@ -574,15 +587,18 @@
     margin-bottom: -150px;
   }
 
-  .introSection .introText {
-    flex-direction: column;
-    justify-content:flex-start;
-    position: relative;
-    width: 50%;
-    margin: 0 auto;
-    display: flex;
-    left: 80px;
-  }
+    /* Initial styling för introText */
+.introSection .introText {
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  left: 5%;
+  opacity: 0; /* Startar som osynlig */
+  animation: slideInFromLeft 1s ease-out forwards; /* Animering som slidar in från vänster */
+}
   
   .introSection .introText h1 {
     margin: -10px 0 1.5rem;
@@ -608,18 +624,7 @@
     left: 0;
   }
 
-  /* Initial styling för introText */
-.introSection .introText {
-  flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
-  width: 50%;
-  margin: 0 auto;
-  display: flex;
-  left: 80px;
-  opacity: 0; /* Startar som osynlig */
-  animation: slideInFromLeft 1s ease-out forwards; /* Animering som slidar in från vänster */
-}
+
 
 /* Animering för att slida in från vänster */
 @keyframes slideInFromLeft {
@@ -750,7 +755,7 @@
     }
   }
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: 1150px) {
     .introSection {
       flex-direction: column;
     }
@@ -760,11 +765,12 @@
     }
 
     .introSection .imageContainer {
+      max-width: 1000px;
       width: 100%;
     }
 
     .introSection .introText {
-      left: 30px;
+      left: 10px;
       margin-right: 40px;
       width: 90%;
     }
@@ -825,14 +831,6 @@
   
   
 
-  .buttons {
-    margin-top: 2rem;
-  }
-  
-  .buttons .yellowBtn {
-    margin-right: .5rem;
-  }
-
   .curved.upper {
     margin-top: 70px;    
   }
@@ -865,6 +863,7 @@
 
   .accentImg {
     order: -1;
+    margin-top: 4rem;
   }
 
   .accentImg::before,
@@ -923,6 +922,17 @@
     background-color: #0099ff;
   }
 
+  .about {
+  width: 100%;
+}
+  
+.aboutbg {
+  max-width: 3000px;
+  width: 100%;
+  background-color: #EAD6D0;
+}
+  
+
   .aboutGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Skapar 3 kolumner */
@@ -931,50 +941,143 @@
     align-items: start;
     max-width: 1350px;
     justify-self: center;
-    margin-top: -10px;
-    padding-top: 50px;
-  }
-
-
-  .about1 {
-    grid-column: 3 / 5;
-    grid-row: 1 / 2;
-  }
-
-  .myHistoryImg {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-  }
-
-  
-.myHistoryImg img {
-  max-width: 500px;
-  width: 100%;
+    margin-top: -100px;
+    padding: 50px 25px 0;
 }
+
+.about h1 {
+  padding: 0 25px;
+}
+
+
+.about1 {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto -100px;
+  display: block;
+  position: relative;
+  z-index: 10;
+  padding: 0 25px;
+}
+
 
   .about2 {
     grid-column: 1 / 3;
     grid-row: 2 / 3;
   }
 
-  .visionImg {
+  .aboutImg {
     grid-column: 3 / 5;
     grid-row: 2 / 3;
   }
 
+  
+  .aboutImg figure img {
+    width: 650px;          /* Sätt bredden till 400px */
+    height: 650px;         /* Sätt höjden till 200px */
+     object-fit: cover;     /* Beskär bilden så att den täcker hela området utan att förvrängas */
+     border-radius: 25px;
+    }
+
+
+
+  .visionImg {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
+
+  .visionImg figure img {
+    width: 650px;          /* Sätt bredden till 400px */       /* Sätt höjden till 200px */
+    height: 350px; 
+    object-fit: cover;     /* Beskär bilden så att den täcker hela området utan att förvrängas */
+    border-radius: 25px;
+  }
+
   .about3 {
-    grid-column: 2 / 4;
+    grid-column: 3 / 5;
     grid-row: 3 / 4;
   }
 
   .about4 {
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
     grid-row: 4 / 5;
+    margin-top: 100px;
+  }
+
+  .about4-services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Skapar 3 kolumner */
+    gap: 1.5rem;
+    margin-top: 50px;
   }
 
   .about5 {
     grid-column: 1 / 3;
     grid-row: 5 / 6;
+  }
+
+  @media screen and (max-width: 1000px) {
+
+    .about2 {
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+    }
+  
+    .aboutImg {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+      padding-top: 100px;
+    }
+  
+    
+    .aboutImg figure img,
+    .visionImg figure img {         
+      height: 450px;  
+      margin-bottom: -120px;       
+      }
+      
+      .visionImg figure img {
+        margin-top: -80px;
+      }
+  
+    .visionImg {
+      grid-column: 1 / 5;
+      grid-row: 3 / 4;
+    }
+  
+  
+    .about3 {
+      grid-column: 1 / 5;
+      grid-row: 4 / 5;
+    }
+  
+    .about4 {
+      grid-column: 1 / 5;
+      grid-row: 5 / 6;
+      margin-top: 0px;
+    }
+  
+    .about4-services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Skapar 3 kolumner */
+      gap: 1.5rem;
+      margin-top: 50px;
+    }
+  
+    .about5 {
+      grid-column: 1 / 5;
+      grid-row: 6 / 7;
+    }
+  
+  }
+
+  @media screen and (max-width: 600px) {
+    .about4-services {
+      grid-template-columns: repeat(1, 1fr); /* Skapar 3 kolumner */
+      gap: 1.5rem 0rem;
+      margin-top: 0px;
+    }
+  
   }
 
   .accentAbout h2 {
@@ -1008,11 +1111,16 @@
 
   @media screen and (max-width: 1330px) {
     .accentContent {
-      gap: 50px;
+      gap: 100px;
+    }
+
+    .accentImg {
+      margin-top: 7rem;
     }
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1150px) {
+   
     .accentContent {
       flex-direction: column;
     }
@@ -1031,11 +1139,17 @@ display: none;
       margin-bottom: 30px;
     }
 
+
       .accentImg img {
-        max-width: 800px;
-        width: 90%;
-        margin: 40px 0px 0px 5%;
+        max-width: 1000px;
+        width: 100%;
       }
+  }
+
+  @media screen and (max-width: 870px) {
+    .accentSection {
+      width: 100%;
+    }
   }
 
 
@@ -1075,6 +1189,7 @@ display: none;
     width: 320px;
     border-radius: 25px;
     background-color: #faf4f2;
+    margin-bottom: 50px;
   }
 
   .image-content,
@@ -1159,13 +1274,17 @@ display: none;
   left: 0;
 }
 
+.swiper-pagination {
+  bottom: 0px !important;
+}
+
 .swiper-pagination-bullet{
-  color: #A75D5D;
+  background-color: #A75D5D !important;
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #A75D5D;
+  background-color: #A75D5D !important;
 }
 
 
@@ -1185,6 +1304,26 @@ display: none;
 
   .swiper-navBtn {
     display: none;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    transform: scale(0.3); /* Skala upp storleken */
+  }
+
+  
+  .slide-content {
+    margin: 0 18px;
+  }
+
+  .swiper-button-next {
+    margin-right: -15px;
+  }
+  
+  .swiper-button-prev {
+    margin-left: -15px;
   }
 }
   /*SLUT PÅ NYHETSSLIDER*/
@@ -1221,6 +1360,7 @@ display: none;
       grid-template-columns: repeat(1, 1fr); /* Skapar 3 kolumner */
     }
   }
+
 
 
   .projectSection .newsContainer article {
@@ -1372,13 +1512,15 @@ display: none;
   }
 
 
-  .project .projectDescription .pSmall, .news .projectDescription .pSmall {
+.news .projectDescription .pSmall {
     margin-bottom: 30px;
   }
-  
-  .project button, .news button {
-    margin-top: 1.5rem;
+
+  .custom-excerpt {
+    margin-bottom: 2rem;
   }
+
+
   
   .hidden {
     display: none;
@@ -1388,9 +1530,8 @@ display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
     padding-bottom: 200px;
-    padding-left: 5%;
     display: flex;
     background-color: #f6e8e4;
   }
@@ -1578,7 +1719,6 @@ form input {
   
     .projectSection a article span, .news .projectImage {
       width: 100%;
-      height: 300px;
     }
 
     .projectSection a:nth-of-type(even) article span {
@@ -1605,6 +1745,7 @@ form input {
       margin-top: 50px;
       background-color: #f6e8e4;
       margin-bottom: 0px;
+      width: 95%;
     }
   
     .contactSection .contactText {
@@ -1734,7 +1875,7 @@ form input {
 }
 
 .services.servicepage h2 {
-  margin-top: 100px;
+  margin-top: 0px;
 }
 
   .services h2 {
@@ -1767,7 +1908,7 @@ form input {
     font-size: 36px;
   }
   
-  .workItem, .educationItem {
+  .workItem {
     margin: 1rem 0;
     background-color: #f8ece7;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1804,15 +1945,27 @@ form input {
     font-size: 26px;
   }
   
-
-
-  @media  screen and (max-width: 495px) {
+    
     .workItem .projectDescription p {
       margin-top: 20px;
       margin-bottom: 40px;
-      font-size: 18px;
+    }
+
+    @media screen and (width <= 1780px) {
+      .workItem .projectDescription p {
+        font-size: 18px;
+      }
     }
   
+    @media  screen and (max-width: 495px) {
+      .workItem .projectDescription {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .workItem .projectDescription p {
+        font-size: 16px;
+      }
   }
   
   .h1-special {
@@ -1823,11 +1976,6 @@ form input {
     margin: 5rem auto 3rem;
   }
   
-  @media screen and (width <= 1780px) {
-    .workItem .projectDescription p {
-      font-size: 18px;
-    }
-  }
   
   @media screen and (width <= 1340px) {
     .gridContainer {
@@ -1941,7 +2089,7 @@ form input {
   .footerContent {
     display: flex;
     position: relative;
-    z-index: 9999;
+    z-index: 999;
     justify-content: space-around;
     align-items:flex-start;
     padding: 50px;
@@ -2057,7 +2205,7 @@ form input {
   .service {
     display: block;
     position: relative;
-    z-index: 9999;
+    z-index: 999;
     height: fit-content;
     margin-bottom: -140px;
   }
@@ -2075,7 +2223,7 @@ form input {
 .service article {
   max-width: 950px;
   width: 100%;
-  padding: 0 15px 10%;
+  padding: 0 25px 10%;
   margin: 0 auto;
 }
 
@@ -2136,7 +2284,7 @@ form input {
 }
 
 
-.essential-web .main-package {
+.main-package {
   display: flex;
   flex-direction: row;
 }
@@ -2146,9 +2294,11 @@ form input {
   margin: 0px auto 2rem;
 }
 
-.service-item .button {
+.service-item .button,
+.serviceDescription .button  {
   display: block;
   justify-self: center;
+  margin: 0 auto;
 }
 
 .package-description {
@@ -2166,6 +2316,14 @@ form input {
   width: 30%;
 }
 
+.accessability .package-description {
+  width: 60%;
+}
+
+.accessability .package-include {
+  width: 40%;
+}
+
 @media screen and (max-width: 1400px) {
   .essential-web {
     margin-bottom: 0px;
@@ -2173,15 +2331,18 @@ form input {
 }
 
 @media screen and (max-width: 800px) {
-  .essential-web .main-package {
+  .main-package {
     flex-direction: column;
   }
 
-  .package-description {
+  .package-description,
+  .accessability .package-description {
     width: 100%;
+    padding: 0 0.7rem;
   }
 
-  .package-include {
+  .package-include,
+  .accessability .package-include {
     width: 100%;
     margin-left: 18px;
   }
@@ -2285,9 +2446,6 @@ form input {
   margin-left: 50px;
 }
 
-.serviceDescription .button {
-  align-self: center;
-}
 
 .processBg {
   width: 100%;
@@ -2376,6 +2534,7 @@ form input {
     max-height: 400px;
     height: 100%;
     border-radius: 0px 180px 45px 250px;
+    transform: unset;
   }
 }
 
@@ -2387,16 +2546,23 @@ form input {
   padding-bottom: 100px;
 }
 
+#aboutForm {
+  background-color: #f6e8e4;
+  position: relative;
+  z-index: 10;
+}
+
 .web-consultation .processText {
   display: flex;
-
-
-justify-content: center;
+  justify-content: space-around;
   padding: 0 40px 0 0px;
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
 .web-consultation .wp-block-group {
-  width: 45%;
+  max-width: 600px;
+  width: 50%;
 }
 
 .web-consultation .wp-block-group h2 {
@@ -2409,7 +2575,7 @@ justify-content: center;
 
 
 .web-consultation form {
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
   margin-top: 60px;
   margin-bottom: -150px;
@@ -2467,12 +2633,14 @@ justify-content: center;
   }
 } 
 
-.accessability .flexContainer{
+.accessability .flexContainer,
+.optimization .flexContainer{
   grid-template-columns:none;
   justify-content: center;
 }
 
-.accessability .service-item {
+.accessability .service-item
+.optimization .service-item {
   max-width: 1000px;
   width: 100%;
 }

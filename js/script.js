@@ -58,44 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const items = document.querySelectorAll('.workItem, .educationItem, .accentImg, .service-item, .accentContent, .newsContainer article, .essential-content');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            console.log(entry.target);
-            entry.target.classList.add('visible'); // Lägg till klass när elementet är synligt
-            observer.unobserve(entry.target); // Sluta observera efter att animationen triggas
-          }
-      });
-  }, { threshold: 0.3 }); // Startar animation när 50% av elementet är synligt
-
-  items.forEach(item => {
-      observer.observe(item);
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
   // Hitta alla element med klassen 'menu-item-has-children'
   const menuItems = document.querySelectorAll('.smallNav .menu-item-has-children');
 
-  menuItems.forEach(function(item) {
-      // Lägg till en klickhändelse på varje kategori
-      item.addEventListener('click', function(event) {
-          // Förhindra att länken navigerar (om det är en länk)
-          event.preventDefault();
+  menuItems.forEach(item => {
+    const link = item.querySelector(':scope > a'); // Endast huvudlänken, ej barn
 
-          // Ta bort 'active' klass från alla andra menyitem
-          menuItems.forEach(function(otherItem) {
-              if (otherItem !== item) {
-                  otherItem.classList.remove('active');
-              }
-          });
+    link.addEventListener('click', function (event) {
+        event.preventDefault(); // Förhindra att huvudlänken navigerar
 
-          // Lägg till eller ta bort 'active' klass på den här menyitem
-          item.classList.toggle('active');
-      });
+        // Växla 'active' klass för att öppna/stänga undermenyn
+        const isActive = item.classList.contains('active');
+        menuItems.forEach(otherItem => otherItem.classList.remove('active')); // Stäng andra
+        if (!isActive) {
+            item.classList.add('active'); // Öppna aktuell undermeny
+        }
+    });
   });
 
   document.querySelectorAll('.smallNav .menu-top-menu-container ul li a').forEach(link => {
@@ -110,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  const subMenuLinks = document.querySelectorAll('.largeNav .menu-item-has-children a');
+  const subMenuLinks = document.querySelectorAll('.menu-item-has-children a');
 
   // Lägg till "active" klass på den länk som är aktiv
   subMenuLinks.forEach(link => {
@@ -129,6 +107,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const items = document.querySelectorAll('.workItem, .educationItem, .accentImg, .service-item, .accentContent, .newsContainer article, .essential-content');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            console.log(entry.target);
+            entry.target.classList.add('visible'); // Lägg till klass när elementet är synligt
+            observer.unobserve(entry.target); // Sluta observera efter att animationen triggas
+          }
+      });
+  }, { threshold: 0.3 }); // Startar animation när 50% av elementet är synligt
+
+  items.forEach(item => {
+      observer.observe(item);
+  });
+});
+
 
 
 
