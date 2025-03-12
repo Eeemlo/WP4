@@ -59,6 +59,13 @@ $args = array(
 add_theme_support('custom-header', $args);
 
 
+//Avslut på excerpt
+function custom_excerpt_more($more) {
+    return '... [Läs mer]';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
+
 //Ladda JS filen efter DOM
 function my_theme_scripts() {
     wp_enqueue_script('swiper-js', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), null, true);

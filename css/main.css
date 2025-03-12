@@ -139,12 +139,18 @@
   #ctahead {
     color: #fff;
     text-decoration: none;
-    padding: .9rem 1.6rem;
-    margin-left: 3rem;
+    padding: .9rem 1.4rem;
+    margin-left: 0rem;
+    font-size: 0.9rem;
   }
+
 
   #ctahead:hover {
     background-color: #521525;
+  }
+
+  .smallNav #ctahead {
+    padding: .9rem 1.2rem;
   }
 
   i {
@@ -174,10 +180,6 @@
     font-weight: 800;
   }
   
-  .newsPost .pSmall {
-    margin-top: 2rem;
-    font-weight: 500;
-  }
 
 
   @media screen and (width <= 1780px) {
@@ -444,14 +446,10 @@
   .smallNav .button {
     width: 100%;
     justify-self: center;
+    margin-top: 40px;
+    font-size: 0.5rem;
   }
 
-  .smallNav .sub-menu {
-    display: flex;
-    flex-direction: column;
-    padding: 0rem 0;
-    background-color: #f8eeebe6;
-}
 
 .smallNav .sub-menu li {
     margin: 1rem 1rem;
@@ -1374,7 +1372,16 @@ display: none;
     transform: scale(1);
   }
   
-
+  .newsContainer a {
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .newsContainer a:hover {
+    transform: translateY(-5px); /* Lyfter upp kortet lite */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ger en snygg skugga */
+  }
+  
   .posts {
     display: flex;
     flex-direction: row;
@@ -1538,7 +1545,6 @@ display: none;
   
   .contactSection .contactText {
     flex-direction: column;
-    justify-content: center;
     max-width: 50%;
     min-height: 600px;
     display: flex;
@@ -1614,10 +1620,13 @@ form input {
     border: none;
     height: 2.4em;
     width: 100%;
-    font-family: Roboto, sans-serif;
+    font-family: Nunito, sans-serif;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 400;
     transition: all .5s;
+    border-radius: 50px;
+    letter-spacing: 1.8px;
+    text-transform:uppercase;
   }
   
  form input[type="submit"]:hover {
@@ -2485,6 +2494,10 @@ form input {
   background-color: #f5edea;
 }
 
+.processText summary {
+  font-size: 1.1rem;
+}
+
 .processSection h3 {
   margin: 2rem 0;
 }
@@ -2544,6 +2557,8 @@ form input {
   background-color: #EAD6D0;
   width: 100%;
   padding-bottom: 100px;
+  position: relative;
+  z-index: 99;
 }
 
 #aboutForm {
@@ -2556,12 +2571,12 @@ form input {
   display: flex;
   justify-content: space-around;
   padding: 0 40px 0 0px;
-  max-width: 1250px;
-  margin: 0 auto;
+  max-width: 1850px;
+  margin-left: 25px;
 }
 
 .web-consultation .wp-block-group {
-  max-width: 600px;
+  max-width: 800px;
   width: 50%;
 }
 
@@ -2573,18 +2588,35 @@ form input {
   margin-bottom: 2rem;
 }
 
+.web-consultation .wpcf7 {
+  width: 35%;
+  margin-bottom: 70px;
+}
+
 
 .web-consultation form {
   max-width: 1000px;
   width: 100%;
   margin-top: 60px;
   margin-bottom: -150px;
-  margin-left: 30px;
+  margin-left: 25px;
+ }
+
+ @media screen and (max-width: 1435px) {
+  .web-consultation .wpcf7 {
+    width: 45%;
+  }
  }
 
  @media screen and (max-width: 935px) {
+  .web-consultation .wpcf7 {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+  
   .web-consultation .processText {
     flex-direction: column;
+    margin-top: 50px;
   }
 
   .web-consultation .wp-block-group {

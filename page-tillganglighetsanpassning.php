@@ -76,7 +76,7 @@
                         <div class="serviceDescription">
                         <h3><?php the_title(); ?></h3>
                             <p><?php the_content(); ?></p>
-                            <a href="<?php the_permalink(); ?>" class="button">Boka konsultation <i
+                            <a href="#accessibility-consultation" class="button">Boka konsultation <i
                                     class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
@@ -126,7 +126,7 @@
         </svg>
     </div>
 
-<section class="web-consultation">
+<section class="web-consultation" id="accessibility-consultation">
     <?php
     // Hämta sidan som innehåller innehållet, t.ex. "process"
     $page = get_page_by_path('konsultation-tillganglighet');  // Ändra slug till den sida som innehåller formuläret

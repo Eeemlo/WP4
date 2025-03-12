@@ -60,7 +60,7 @@
         if ($page && is_object($page)): ?>
             <article class="service-item">
                     <p><?php echo apply_filters('the_content', get_post_field('post_content', $page->ID)); ?></p>
-                    <a href="<?php echo get_permalink($page); ?>" class="button">Boka konsultation <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#web-consultation" class="button">Boka konsultation <i class="fa-solid fa-arrow-right"></i></a>
             </article>
         <?php else: ?>
             <p>Sidan som du söker finns inte eller har inte publicerats än.</p>
@@ -98,7 +98,7 @@
                     <div class="serviceDescription">
                         <h3><?php the_title(); ?></h3>
                         <p><?php the_content(); ?></p>
-                        <a href="<?php the_permalink(); ?>" class="button">Boka konsultation <i
+                        <a href="#web-consultation" class="button">Boka konsultation <i
                                 class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
@@ -149,7 +149,7 @@
         </svg>
     </div>
 
-    <section class="web-consultation">
+    <section class="web-consultation" id="web-consultation">
         <?php
         // Hämta sidan som innehåller innehållet, t.ex. "process"
         $page = get_page_by_path('boka-konsultation');  // Ändra slug till den sida som innehåller formuläret

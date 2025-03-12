@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <defs>
+        <mask id="waveMask">
+            <rect width="100%" height="100%" fill="white"/>
+            <path fill="black" d="M0,160L40,186.7C80,213,160,267,240,245.3C320,224,400,128,480,106.7C560,85,640,139,720,149.3C800,160,880,128,960,128C1040,128,1120,160,1200,181.3C1280,203,1360,213,1400,218.7L1440,224V0H0Z"/>
+        </mask>
+    </defs>
+    <rect width="100%" height="100%" fill="white" mask="url(#waveMask)"/>
+</svg>

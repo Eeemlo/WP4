@@ -8,7 +8,7 @@
         <!-- Definiera en linear gradient här -->
         <defs>
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:;stop-opacity:1" />
                 <stop offset="100%" style="stop-color:#A75D5D;stop-opacity:1" />
             </linearGradient>
         </defs>
@@ -40,7 +40,7 @@
             }
             ?>
 
-            <a class="button btn-scale" href="#">Jobba med mig</a>
+            <a class="button btn-scale" href="#contactMain">Jobba med mig</a>
         </div>
 
         <!--Right container-->
@@ -100,6 +100,8 @@
     </section>
 
 
+
+
     <!--SVG SECTION-->
     <div class="curved upper">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
@@ -118,7 +120,7 @@
                 if ($page) {
                     // Skriver ut innehållet från den sidan (inklusive formuläret)
                     echo apply_filters('the_content', $page->post_content); ?>
-                    <a class="button btn-scale" href="">Jobba med mig</a>
+                    <a class="button btn-scale" href="#contactMain">Jobba med mig</a>
 
                 </div>
                 <div class="accentImg">
