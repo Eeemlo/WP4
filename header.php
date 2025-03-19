@@ -14,7 +14,6 @@
   <!--SWIPER CSS-->
 <link rel="stylesheet" href="<?= get_template_directory_uri();?>/css/swiper-bundle.min.css">
     
-    <script src="https://kit.fontawesome.com/bbc57534db.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

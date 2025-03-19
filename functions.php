@@ -13,6 +13,18 @@ function register_my_menu() {
     ));
 }
 
+//Ta bort private från privata sidtitlar
+function remove_private_from_title($title) {
+    // Kolla om det är en enskild sida och om sidan är privat
+    if (is_singular('page') && get_post_status() === 'private') {
+        // Ta bort ordet 'Private' från titeln
+        $title = str_replace('Private ', '', $title);
+    }
+    return $title;
+}
+add_filter('the_title', 'remove_private_from_title');
+
+
     /*Aktivera logotypstöd*/
 function theme_setup() {
     add_theme_support('custom-logo', array(
@@ -34,7 +46,7 @@ function add_custom_anchor_links_to_menu($items, $args) {
         $link = $page_url . '#' . $section_id;
         
         // Skapa ett nytt menyobjekt
-        $new_item = '<li class="menu-item menu-item-type-custom"><a class="button" id="ctahead" href="' . esc_url($link) . '">Kontakta mig!</a></li>';
+        $new_item = '<li class="menu-item menu-item-type-custom"><a class="button btn-shadow" id="ctahead" href="' . esc_url($link) . '">Kontakta mig!</a></li>';
         
         // Lägg till det nya objektet i menyn
         $items .= $new_item;
@@ -50,8 +62,8 @@ add_theme_support('post-thumbnails');
 
 /* Aktivera stöd för dynamisk headerbild */
 $args = array(
-    'width' => 295,
-    'height' => 287,
+    'width' => 500,
+    'height' => 500,
     'default-image' => get_template_directory_uri() . '/images/ee2.png',
     'uploads' => true
 );
@@ -61,7 +73,7 @@ add_theme_support('custom-header', $args);
 
 //Avslut på excerpt
 function custom_excerpt_more($more) {
-    return '... [Läs mer]';
+    return '...';
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
 

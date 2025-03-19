@@ -7,9 +7,9 @@
   <svg id="blob" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 330">
     <!-- Definiera en linear gradient här -->
     <defs>
-      <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#A75D5D;stop-opacity:1" />
+    <linearGradient id="gradient1" x1="20%" y1="0%" x2="20%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff9a8b;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#8B3F6E;stop-opacity:1" />
       </linearGradient>
     </defs>
 
@@ -34,15 +34,15 @@
 
         <!-- Skriver ut avkortade posts från WP enligt inställning -->
         <article class="newsPost">
-        <span>
+        <span class="singleImg">
                 <?php
                 if (has_post_thumbnail()) {
                     the_post_thumbnail('full');
                 }
                 ?>
             </span>
-            <p class="pSmall">Skriven av Emma bla bla</p>
-            <div><?php the_content(); ?></div>
+            <p class="pSmall">Skriven av Emma Lorensson den <?php the_date(); ?></p>
+            <div class="single-post"><?php the_content(); ?></div>
         </article>
 
     </section>

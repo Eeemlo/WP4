@@ -6,9 +6,9 @@
 <div class="custom-shape-divider-top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#ff7e5f;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#A75D5D;stop-opacity:1" />
+        <linearGradient id="gradient1" x1="20%" y1="0%" x2="20%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff9a8b;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#8B3F6E;stop-opacity:1" />
             </linearGradient>
         </defs>
 
@@ -40,7 +40,7 @@
 
                     <a href="<?php the_permalink(); ?>">
                         <article>
-                            <div>
+                            <div class="newsHeader">
                                 <h4><?php the_title(); ?></h4>
                                 <p class="pSmall"><?php the_date(); ?></p>
                                 <?php the_excerpt(); ?>
